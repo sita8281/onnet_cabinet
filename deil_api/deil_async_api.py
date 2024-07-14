@@ -1,25 +1,44 @@
 from bs4 import BeautifulSoup
-from httpx import AsyncClient, HTTPError
-import asyncio
+from httpx import AsyncClient, HTTPError, TimeoutException
 import exceptions
+from typing import Literal
+from functools import wraps
 
 
 class BaseAPI:
     def __init__(self, config):
         self.host = config['host']
         self.port = config['port']
-        self.login = 'artem8281'
-        self.passw = '20012001'
-        self.client = AsyncClient()
+        self.login = ''
+        self.passw = ''
+        self.client = AsyncClient(timeout=5)
         self.cookie = ''
 
-    async def _get_bs(self, url):
-        if not self.cookie:
-            self.cookie = await self._auth(self.login, self.passw)
-        response = await self.client.get(f'http://{self.host}:{self.port}{url}', cookies={'PHPSESSID': self.cookie})
-        response.encoding = 'cp1251'
-        return BeautifulSoup(response.text, 'lxml')
+    @staticmethod
+    def exception_decor(func):
+        @wraps(func)
+        async def wrapper(*args, **kwargs):
+            try:
+                rslt = await func(*args, **kwargs)
+                return rslt
+            except TimeoutException:
+                return exceptions.TimeoutResponse()
+            except HTTPError:
+                raise exceptions.RequestError()
+        return wrapper
 
+    @exception_decor
+    async def _get_bs(self, url):
+        try:
+            if not self.cookie:
+                self.cookie = await self._auth(self.login, self.passw)
+            response = await self.client.get(f'http://{self.host}:{self.port}{url}', cookies={'PHPSESSID': self.cookie})
+            response.encoding = 'cp1251'
+            return BeautifulSoup(response.text, 'lxml')
+        except HTTPError:
+            raise exceptions.RequestError()
+
+    @exception_decor
     async def _post_bs(self, url: str, data: dict):
         if not self.cookie:
             self.cookie = await self._auth(self.login, self.passw)
@@ -51,7 +70,15 @@ class BaseAPI:
             raise exceptions.AuthFailed()
         return cookie
 
-    async def get_user_info(self) -> list:
+    def _ideco_error_parser(self, bs):
+        error = bs.find('div', {'class': 'ideco_error'})
+        if error:
+            return {'status': False, 'error': error.get_text().strip()}
+        if str(bs).find('alert'):
+            return {'status': True}
+        return {'status': False}
+
+    async def get_user_info(self) -> dict[Literal['info_list']: list, Literal['dedicaded_ip']: bool]:
         info_list = []
         bs = await self._get_bs(url='/cabinet/userinfo')
         table_info = bs.find('table', {'id': 'ideco_user_info'})
@@ -60,7 +87,10 @@ class BaseAPI:
                 key = tr.find('td', {'class': 'label'}).get_text().strip()
                 val = tr.find('td', {'class': 'value'}).get_text().strip()
                 info_list.append((key, val))
-        return info_list
+        dedicaded_ip = bs.find('table', {'id': 'ideco_user_addons'})
+        if dedicaded_ip:
+            return {'info_list': info_list, 'dedicaded_ip': True}
+        return {'info_list': info_list, 'dedicaded_ip': False}
 
     async def get_payment_info(self) -> int | None:
         bs = await self._get_bs(url='/cabinet/payment')
@@ -104,16 +134,22 @@ class BaseAPI:
             current_tarif = (name, price)
         return {'tarifs': tarif_list, 'current': current_tarif}
 
-    async def set_number_phone(self, phone: str) -> bool:
+    async def set_number_phone(self, phone: str) -> dict[Literal['status']: bool, Literal['error']: str] | \
+                                        dict[Literal['status']: bool]:
         """Установить номер телефона для SMS"""
         bs = await self._post_bs('/cabinet/control', {'new_sms': phone, 'change_info': 'info'})
-        if str(bs).find('alert'):
-            return True
+        return self._ideco_error_parser(bs)
+
+    async def set_dedicated_ip(self) -> dict[Literal['status']: bool, Literal['error']: str] | \
+                                        dict[Literal['status']: bool]:
+        """Включить услугу выделенный IP"""
+        bs = await self._post_bs('/cabinet/control', {'usluga_id': '12', 'submit_addon': 'addon'})
+        return self._ideco_error_parser(bs)
+
+    async def promise_pay(self, tarif_sum: int) -> dict[Literal['status']: bool, Literal['error']: str] | \
+                                                   dict[Literal['status']: bool]:
+        """Выполнить обещанный платёж"""
+        bs = await self._post_bs('/cabinet/control', {'promise_pay': f'{tarif_sum}', 'change_promise': 'promise'})
+        return self._ideco_error_parser(bs)
 
 
-
-
-
-loop = asyncio.get_event_loop()
-api = BaseAPI(config={'host': '192.168.255.100', 'port': '80'})
-loop.run_until_complete(api.set_number_phone(phone='9998887722'))

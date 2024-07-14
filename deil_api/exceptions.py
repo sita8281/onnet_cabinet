@@ -13,3 +13,8 @@ class TimeoutResponse(DeilError):
 class ParsingError(DeilError):
     pass
 
+
+class RequestError(DeilError):
+    pass
+
+
