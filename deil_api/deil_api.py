@@ -1,6 +1,6 @@
 import pickle
 from bs4 import BeautifulSoup
-import requests
+import aiohttp
 import urllib.parse
 import time
 import socket
@@ -31,7 +31,7 @@ class DeilAPI:
     def __init__(self, login, passw, ip, port):
         super().__init__()
 
-        self.session = requests.Session()
+        self.session = aiohttp.Session()
         self.user_login = login
         self.user_passw = passw
         self.static_url = f'http://{ip}:{port}'
@@ -323,7 +323,7 @@ class DeilAPI:
                 pass
         return ['success']
 
-    def raw_sock_post(self, url, data):
+    async def raw_sock_post(self, url, data):
         """сырой http post"""
         cookie, val = self.session.cookies.items()[0]
         url = urllib.parse.urlparse(url)
@@ -358,7 +358,7 @@ class DeilAPI:
         time.sleep(1)
 
     @auth_fixer
-    def create_helpdesk(self, iid, theme, info):
+    async def create_helpdesk(self, iid, theme, info):
         """Создать новую заявку"""
         try:
             subj = urllib.parse.quote_plus(theme, encoding='cp1251')
@@ -370,7 +370,7 @@ class DeilAPI:
             return ['success']
 
     @auth_fixer
-    def send_helpdesk(self, iid, text):
+    async def send_helpdesk(self, iid, text):
         a = 'none'
         try:
             text = urllib.parse.quote_plus(text, encoding='cp1251')
@@ -379,14 +379,14 @@ class DeilAPI:
         finally:
             return [a]
 
-    def _get_bs(self, url, parser):
-        response = self.session.get(f'{self.static_url}{url}')
+    async def _get_bs(self, url, parser):
+        response = await self.session.get(f'{self.static_url}{url}')
         response.encoding = 'windows-1251'
         bs = BeautifulSoup(response.text, parser)
         return bs
 
     @staticmethod
-    def _unathorized_detect(response):
+    async def _unathorized_detect(response):
         if response.status_code != 200:
             return
         bs = BeautifulSoup(response.text, 'html.parser')
