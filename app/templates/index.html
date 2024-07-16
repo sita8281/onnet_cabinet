@@ -3,9 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="/static/js/jquery-3.7.1.min.js" defer></script>
+    <script src="/static/js/panel_requests.js" defer></script>
+    <link rel="stylesheet" href="/static/css/base.css">
 </head>
 <body>
-    <h1>Login SUCCESS</h1>
-    <a href="/logout">Выйти</a>
+    <script>
+        window.onload = function() {
+            console.log('0');
+        }
+    </script>
+    <!-- <h1>Login SUCCESS</h1>
+    <a href="/logout">Выйти</a> -->
+
+    <div class="header"></div>
+    <div class="header-pass"></div>
+    <div class="main">
+        <div class="content">
+            <div class="panel">
+                <a class="panel__a" href="javascript: routeRequest('/', 'a-info')" id="a-info">Информация</a>
+                <a class="panel__a" href="javascript: routeRequest('/', 'a-operations')" id="a-operations">История операций</a>
+                <a class="panel__a" href="javascript: routeRequest('/', 'a-tarif')" id="a-tarif">Тарифы</a>
+                <a class="panel__a" href="javascript: routeRequest('/', 'a-payment')" id="a-payment">Оплата</a>
+                <a class="panel__a" href="javascript: routeRequest('/', 'a-sms')" id="a-sms">SMS-напоминания</a>
+            </div>
+            <div class="view-content">
+                <div class="label-content">Профиль абонента</div>
+            </div>
+        </div>
+        <div class="footer">
+            Footer text
+        </div>
+    </div>
 </body>
 </html>
