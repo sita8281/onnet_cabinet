@@ -16,7 +16,6 @@ function openPaymentWindow (amount, accountId) {
             recurrent: recurrent
         }
     }
-
     widget.charge({ // options
         publicId: 'pk_524c2e6910d96abbecb08a0e7d7ae', //id из личного кабинета
         description: 'Пополнение счета. Договор № ' + accountId, //назначение

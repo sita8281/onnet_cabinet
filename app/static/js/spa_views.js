@@ -47,6 +47,21 @@ function phoneView() {
     // анимация загрузки
 }
 
-function paymentView() {
+function paymentView(data) {
     // анимация загрузки
+    let htmlDoc = `
+    <div>Оплата</div>
+    <input type="text" placeholder="Сумма оплаты, Руб" value="${data.amount}" id="payment_sum">
+    <input type="checkbox" name="" id="" placeholder="Автопродление">
+    <button id="payment_button">Оплатить</button>
+    `
+    $(containerViewsClass).html($(htmlDoc))
+    $('#payment_button').click(function (e) { 
+        e.preventDefault();
+        openPaymentWindow(
+            parseFloat($('#payment_sum').val()),
+            data.account_id
+        )
+    });
+    
 }
