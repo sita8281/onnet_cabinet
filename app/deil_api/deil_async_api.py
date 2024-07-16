@@ -1,16 +1,16 @@
 from bs4 import BeautifulSoup
 from httpx import AsyncClient, HTTPError, TimeoutException
-import exceptions
+from . import exceptions
 from typing import Literal
 from functools import wraps
 
 
 class BaseAPI:
-    def __init__(self, config):
+    def __init__(self, config, login: str, passw: str):
         self.host = config['host']
         self.port = config['port']
-        self.login = ''
-        self.passw = ''
+        self.login = login
+        self.passw = passw
         self.client = AsyncClient(timeout=5)
         self.cookie = ''
 
