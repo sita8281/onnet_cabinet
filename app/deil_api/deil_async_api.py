@@ -92,13 +92,14 @@ class BaseAPI:
             return {'info_list': info_list, 'dedicaded_ip': True}
         return {'info_list': info_list, 'dedicaded_ip': False}
 
-    async def get_payment_info(self) -> int | None:
+    async def get_payment_info(self) -> dict:
         bs = await self._get_bs(url='/cabinet/payment')
         try:
             summ = int(bs.find('input', {'id': 'amount-sample-3'})['value'])
+            account_id = int(bs.find('input', {'id': 'account-sample-3'})['value'])
         except ValueError:
-            return
-        return summ
+            return {'error': 'Ошибка внешнего API шлюза'}
+        return {'amount': summ, 'account_id': account_id}
 
     async def get_operations_info(self):
         bs = await self._get_bs(url='/cabinet/operations')
@@ -106,10 +107,10 @@ class BaseAPI:
         stat_list = [tuple([td.get_text() for td in tr.find_all('td')]) for tr in stat_table.find_all('tr')]
         return list(filter(lambda x: x, stat_list))
 
-    async def get_sms_phone(self):
+    async def get_sms_phone(self) -> str:
         bs = await self._get_bs(url='/cabinet/control')
         phone = bs.find('input', {'name': 'new_sms'})['value']
-        print(phone)
+        return phone
 
     async def get_tarif_info(self) -> dict[str: list[tuple[str, str]], str: tuple]:
         """

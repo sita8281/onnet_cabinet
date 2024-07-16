@@ -21,21 +21,22 @@ async def user_info(request: Request, deil_account: dict = {}):
     return await api.get_operations_info()
 
 
-@api_router.get('/operations')
-@auth_protect
-async def user_info(request: Request, deil_account: dict = {}):
-    api = BaseAPI(config=config, **deil_account)
-    return await api.get_operations_info()
-
-
 @api_router.get('/tarif')
 @auth_protect
 async def user_info(request: Request, deil_account: dict = {}):
     api = BaseAPI(config=config, **deil_account)
     return await api.get_tarif_info()
 
-@api_router.get('/tarif')
+
+@api_router.get('/payment')
 @auth_protect
 async def user_info(request: Request, deil_account: dict = {}):
     api = BaseAPI(config=config, **deil_account)
-    return await api.get_tarif_info()
+    return await api.get_payment_info()
+
+
+@api_router.get('/phone')
+@auth_protect
+async def user_info(request: Request, deil_account: dict = {}):
+    api = BaseAPI(config=config, **deil_account)
+    return await api.get_sms_phone()
