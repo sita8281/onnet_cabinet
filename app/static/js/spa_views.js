@@ -34,12 +34,13 @@ function operationsView(data) {
     });
 }
 
-function tarifView() {
+function tarifView(data) {
     // анимация загрузки
     $(containerViewsClass).html($('<div>', {class: 'tarif-list'}))
-    $.each(data, function (indexInArray, valueOfElement) { 
-         $(`<div>${valueOfElement}</div>`).appendTo('.operations-list');
+    $.each(data.tarifs, function (indexInArray, valueOfElement) { 
+         $(`<div>${valueOfElement}</div>`).appendTo('.tarif-list');
     });
+    $(`<div>Текущий тариф: ${data.current}</div>`).appendTo('.tarif-list');
 }
 
 function phoneView() {
