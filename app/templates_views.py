@@ -10,7 +10,6 @@ from app.deil_api.exceptions import AuthFailed
 @app.get('/')
 @auth_protect_redirect
 async def main(request: Request, deil_account: dict = {}):
-    print(deil_account)
     return templates.TemplateResponse(request=request, name='index.html')
 
 

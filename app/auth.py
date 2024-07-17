@@ -41,7 +41,9 @@ def auth_login(func):
                 await api.get_user_info()
                 token = token_encoder(login, passw)
                 response = RedirectResponse(url='/', status_code=302)
-                response.set_cookie(key='deil_token', value=token)
+                # response.set_cookie(key='deil_token', value=token)
+                # cookie средствами fastapi подставлял кавычки в value, пришлось через хедеры
+                response.headers['Set-Cookie'] = f'deil_token={token}; path=/;'
                 return response
             except deil_api_exc.AuthFailed:
                 return RedirectResponse(url='/login?login_failed=1', status_code=302)
