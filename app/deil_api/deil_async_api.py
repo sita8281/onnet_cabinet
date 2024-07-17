@@ -99,7 +99,7 @@ class BaseAPI:
             account_id = int(bs.find('input', {'id': 'account-sample-3'})['value'])
         except ValueError:
             return {'error': 'Ошибка внешнего API шлюза'}
-        return {'amount': summ, 'account_id': account_id}
+        return {'amount': summ, 'account_id': f'{account_id:07}'}
 
     async def get_operations_info(self):
         bs = await self._get_bs(url='/cabinet/operations')
