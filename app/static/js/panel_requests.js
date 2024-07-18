@@ -70,8 +70,6 @@ function urlHandler(url) {
             )
             break;
         case '/phone':
-            break;
-        case '/payment':
             ajaxRequest(url,
                 success_callback = (data) => {
                     paymentView(data);

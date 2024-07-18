@@ -87,13 +87,20 @@ function tarifView(data) {
 }
 
 function phoneView() {
-    // анимация загрузки
+    // страница номера телефона для sms
+    const content = `
+    <div class="label-content">Пополнение баланса Банковской картой</div><div class="payment-container"></div>
+    `
+    $(containerViewsClass).html($(content))
+    $('<label class="label-sub"><input id="payment-sub" type="checkbox">Включить ежемесячные платежи</label>').appendTo('.payment-container');
+    $(`<div class="payment-sum"><label>Сумма:</label><input id="payment-sum" type="text" autocomplete="off" value="${data.amount}"></div>`).appendTo('.payment-container');
+    $(`<a class="payment-button" href="javascript:openPaymentWindow('${data.account_id}')">Перейти к оплате</a>`).appendTo('.payment-container');
 }
 
 function paymentView(data) {
     // страница оплаты
     const content = `
-    <div class="label-content">Пополнение баланса Банковской картой</div><div class="payment-container"></div>
+    <div class="label-content">Настройка SMS уведомлений</div><div class="payment-container"></div>
     `
     $(containerViewsClass).html($(content))
     $('<label class="label-sub"><input id="payment-sub" type="checkbox">Включить ежемесячные платежи</label>').appendTo('.payment-container');
