@@ -86,17 +86,6 @@ function tarifView(data) {
     });
 }
 
-function phoneView() {
-    // страница номера телефона
-    const content = `
-    <div class="label-content">Настройка SMS уведомлений</div><div class="payment-container"></div>
-    `
-    $(containerViewsClass).html($(content))
-    $('<label class="label-sub"><input id="payment-sub" type="checkbox">Включить ежемесячные платежи</label>').appendTo('.payment-container');
-    $(`<div class="payment-sum"><label>Сумма:</label><input id="payment-sum" type="text" autocomplete="off" value="${data.amount}"></div>`).appendTo('.payment-container');
-    $(`<a class="payment-button" href="javascript:openPaymentWindow('${data.account_id}')">Перейти к оплате</a>`).appendTo('.payment-container');
-}
-
 function paymentView(data) {
     // страница оплаты
     const content = `
@@ -106,4 +95,14 @@ function paymentView(data) {
     $('<label class="label-sub"><input id="payment-sub" type="checkbox">Включить ежемесячные платежи</label>').appendTo('.payment-container');
     $(`<div class="payment-sum"><label>Сумма:</label><input id="payment-sum" type="text" autocomplete="off" value="${data.amount}"></div>`).appendTo('.payment-container');
     $(`<a class="payment-button" href="javascript:openPaymentWindow('${data.account_id}')">Перейти к оплате</a>`).appendTo('.payment-container');
+}
+
+function phoneView(data) {
+    // страница номера телефона
+    const content = `
+    <div class="label-content">Настройка SMS уведомлений</div><div class="phone-container"></div>
+    `
+    $(containerViewsClass).html($(content))
+    $(`<div class="phone-div"><label>Номер телефона:</label><input id="phone-number" type="text" autocomplete="off" value="${data}"></div>`).appendTo('.phone-container');
+    $(`<a class="phone-button" href="">Сохранить</a>`).appendTo('.phone-container');
 }
