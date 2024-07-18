@@ -30,9 +30,11 @@ function userInfoView(data) {
          $(`<tr><td class="td-name">${valueOfElement[0]}</td><td class="td-info">${valueOfElement[1]}</td></tr>`).appendTo('.tbody-list');
     });
 
-    // if (data.dedicaded_ip) {
-    //     $(`<div>Поключена услуга выделенный IP</div>`).appendTo('.user-info');
-    // }
+    if (data.dedicaded_ip) {
+        $(`<tr><td class="td-name">Выделенный IP:</td><td class="td-info on-ip">Услуга подключена</td></tr>`).appendTo('.tbody-list');
+    } else {
+        $(`<tr><td class="td-name">Выделенный IP:</td><td class="td-info off-ip">Услуга не подключена</td></tr>`).appendTo('.tbody-list');
+    }
 }
 
 function operationsView(data) {

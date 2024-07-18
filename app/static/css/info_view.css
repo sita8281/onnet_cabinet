@@ -47,3 +47,11 @@ td.td-name {
     -moz-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
     box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
 }
+
+.off-ip {
+    background-color: rgb(255, 190, 190);
+}
+
+.on-ip {
+    background-color: rgb(218, 255, 162)
+}
