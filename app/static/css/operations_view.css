@@ -1,7 +1,24 @@
 .operations-table {
-    margin-top: 20px;
+    margin-top: 10px;
+    border-spacing: 0;
+    border-spacing: collapse;
+    border: 1px solid rgb(19, 121, 255);
+    -webkit-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    -moz-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+}
+
+.operations-table thead {
+    background-color: rgb(19, 121, 255);
+    height: 40px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: white;
 }
 
 .operations-table td {
     font-family: 'Roboto', sans-serif;
+    padding-left: 5px;
+    padding-top: 5px;
+    margin-bottom: 5px;
 }

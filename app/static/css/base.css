@@ -89,12 +89,25 @@ body, html {
 }
 
 .panel__a {
-    height: 30px;
-    line-height: 30px;
+    display: flex;
+    height: 40px;
+    line-height: 40px;
     text-decoration: none;
     color: white;
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
+    align-content: left;
+    transition: 0.1s;
+}
+
+.panel__a:hover {
+    transition: 0.1s;
+    background-color: slategrey;
+}
+
+.panel__a img {
+    width: 26px;
+    margin-right: 10px;
 }
 
 .selected__a {

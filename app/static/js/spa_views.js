@@ -56,10 +56,8 @@ function operationsView(data) {
     $.each(data, function (indexInArray, valueOfElement) {
         let color = 'silver';
         if (indexInArray % 2 == 0) {
-            console.log('1');
-            color = 'silver';
+            color = '#F0F0F0';
         } else {
-            console.log('2');
             color = 'white';
         }
         
@@ -93,14 +91,11 @@ function phoneView() {
 }
 
 function paymentView(data) {
-    // анимация загрузки
-    let htmlDoc = `
-    <div>Оплата</div>
-    <input type="text" placeholder="Сумма оплаты, Руб" value="${data.amount}" id="payment_sum">
-    <input type="checkbox" name="" id="" placeholder="Автопродление">
-    <button id="payment_button">Оплатить</button>
+    // страница оплаты
+    const content = `
+    <div class="label-content">Пополнение баланса Банковской картой</div><div class="payment-container"></div>
     `
-    $(containerViewsClass).html($(htmlDoc))
+    $(containerViewsClass).html($(content))
     $('#payment_button').click(function (e) { 
         e.preventDefault();
         openPaymentWindow(

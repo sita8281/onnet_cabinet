@@ -17,16 +17,10 @@
     <link rel="stylesheet" href="/static/css/info_view.css">
     <link rel="stylesheet" href="/static/css/operations_view.css">
     <link rel="stylesheet" href="/static/css/tarif_view.css">
+    <link rel="stylesheet" href="/static/css/payment_view.css">
     <script src="https://widget.cloudpayments.ru/bundles/cloudpayments.js"></script>
 </head>
 <body>
-    <script>
-        window.onload = function() {
-            console.log('0');
-        }
-    </script>
-    <!-- <h1>Login SUCCESS</h1>
-    <a href="/logout">Выйти</a> -->
 
     <div class="header">
         <label class="header-onnet">ONNET</label>
@@ -40,12 +34,35 @@
     <div class="main">
         <div class="content">
             <div class="panel">
-                <a class="panel__a" href="javascript: routeRequest('/user', 'a-info')" id="a-info">Информация</a>
-                <a class="panel__a" href="javascript: routeRequest('/operations', 'a-operations')" id="a-operations">История операций</a>
-                <a class="panel__a" href="javascript: routeRequest('/tarif', 'a-tarif')" id="a-tarif">Тарифы</a>
-                <a class="panel__a" href="javascript: routeRequest('/payment', 'a-payment')" id="a-payment">Оплата</a>
-                <a class="panel__a" href="javascript: routeRequest('/phone', 'a-sms')" id="a-sms">SMS-напоминания</a>
-                <a class="panel__a" href="javascript: routeRequest('/control', 'a-payment')" id="a-payment">Услуги</a>
+                <a class="panel__a" href="javascript: routeRequest('/user', 'a-info')" id="a-info">
+                    <img src="/static/images/info.svg">
+                    Информация
+                </a>
+
+                <a class="panel__a" href="javascript: routeRequest('/operations', 'a-operations')" id="a-operations">
+                    <img src="/static/images/history.svg">
+                    История операций
+                </a>
+
+                <a class="panel__a" href="javascript: routeRequest('/tarif', 'a-tarif')" id="a-tarif">
+                    <img src="/static/images/tarif.svg">
+                    Тарифы
+                </a>
+
+                <a class="panel__a" href="javascript: routeRequest('/payment', 'a-payment')" id="a-payment">
+                    <img src="/static/images/payment.svg">
+                    Оплата
+                </a>
+
+                <a class="panel__a" href="javascript: routeRequest('/phone', 'a-sms')" id="a-sms">
+                    <img src="/static/images/sms.svg">
+                    SMS-напоминания
+                </a>
+
+                <a class="panel__a" href="javascript: routeRequest('/control', 'a-payment')" id="a-payment">
+                    <img src="/static/images/services.svg">
+                    Услуги
+                </a>
             </div>
             <div class="view-content">
                 <div class="label-content">Профиль абонента</div>
