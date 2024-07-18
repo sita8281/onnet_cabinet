@@ -33,7 +33,7 @@ const phoneHTML = `
 
 // отображение анимации загрузки
 const animLoadingHTML = `
-<span class="loader"></span>
+<div class="loader-container"><span class="loader"></span></div>
 `
 
 // отображение ошибки

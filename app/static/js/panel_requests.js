@@ -81,6 +81,16 @@ function urlHandler(url) {
                 }
             )
             break;
+        case '/payment':
+            ajaxRequest(url,
+                success_callback = (data) => {
+                    paymentView(data);
+                },
+                error_callback = () => {
+                    errorView('');
+                }
+            )
+            break;
 
     }
 }

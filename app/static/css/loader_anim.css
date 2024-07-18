@@ -1,12 +1,21 @@
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+
 .loader {
-    width: 48px;
-    height: 48px;
+    width: 72px;
+    height: 72px;
     border: 5px solid #bababa;
     border-bottom-color: transparent;
     border-radius: 50%;
     display: inline-block;
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
+
     }
 
     @keyframes rotation {

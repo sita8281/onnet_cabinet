@@ -10,12 +10,12 @@ function loadingView() {
 }
 
 function errorView(info) {
-    // анимация загрузки
+    // экран ошибки
     $(containerViewsClass).html(errorHTML);
 }
 
 function userInfoView(data) {
-    // анимация загрузки
+    // информация пользователя
     const content = `
     <div class="label-content">Профиль абонента</div>
     <table class="info-table">
@@ -38,20 +38,54 @@ function userInfoView(data) {
 }
 
 function operationsView(data) {
-    // анимация загрузки
-    $(containerViewsClass).html($('<div>', {class: 'operations-list'}))
-    $.each(data, function (indexInArray, valueOfElement) { 
-         $(`<div>${valueOfElement}</div>`).appendTo('.operations-list');
+    // история операций
+    const content = `
+    <div class="label-content">История платёжных операций</div>
+    <table class="operations-table">
+        <thead>
+            <th>Дата</th>
+            <th>Тип</th>
+            <th>Сумма</th>
+            <th>Описание</th>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    `
+    $('.view-content').html(content);
+    $.each(data, function (indexInArray, valueOfElement) {
+        let color = 'silver';
+        if (indexInArray % 2 == 0) {
+            console.log('1');
+            color = 'silver';
+        } else {
+            console.log('2');
+            color = 'white';
+        }
+        
+        let row = `
+        <tr style="background-color: ${color}">
+            <td>${valueOfElement[0]}</td>
+            <td>${valueOfElement[1]}</td>
+            <td>${valueOfElement[2]}</td>
+            <td>${valueOfElement[3]}</td>
+        </tr>
+        `
+        $(row).appendTo('.operations-table tbody');
     });
 }
 
 function tarifView(data) {
-    // анимация загрузки
+    // доступные тарифы
+    const content = `<div class="label-content">Доступные тарифы</div><div class="tarif-list"></div>`
     $(containerViewsClass).html($('<div>', {class: 'tarif-list'}))
+    $('.view-content').html(content);
+    $(`<div class="current-tarif">Текущий тариф: ${data.current[0]}</div>`).appendTo('.tarif-list');
+    $(`<div class="box-tarif"></div>`).appendTo('.tarif-list');
+
     $.each(data.tarifs, function (indexInArray, valueOfElement) { 
-         $(`<div>${valueOfElement}</div>`).appendTo('.tarif-list');
+         $(`<div class="unit-tarif"><div>${valueOfElement[0]}</div><a href="">Подключить</a></div>`).appendTo('.tarif-list');
     });
-    $(`<div>Текущий тариф: ${data.current}</div>`).appendTo('.tarif-list');
 }
 
 function phoneView() {
