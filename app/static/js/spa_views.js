@@ -16,14 +16,23 @@ function errorView(info) {
 
 function userInfoView(data) {
     // анимация загрузки
-    $(containerViewsClass).html($('<div>', {class: 'user-info'}))
+    const content = `
+    <div class="label-content">Профиль абонента</div>
+    <table class="info-table">
+        <thead></thead>
+            <tbody class="tbody-list">
+            </tbody>
+    </table>
+    `
+
+    $('.view-content').html(content);
     $.each(data.info_list, function (indexInArray, valueOfElement) { 
-         $(`<div>${valueOfElement}</div>`).appendTo('.user-info');
+         $(`<tr><td class="td-name">${valueOfElement[0]}</td><td class="td-info">${valueOfElement[1]}</td></tr>`).appendTo('.tbody-list');
     });
 
-    if (data.dedicaded_ip) {
-        $(`<div>Поключена услуга выделенный IP</div>`).appendTo('.user-info');
-    }
+    // if (data.dedicaded_ip) {
+    //     $(`<div>Поключена услуга выделенный IP</div>`).appendTo('.user-info');
+    // }
 }
 
 function operationsView(data) {

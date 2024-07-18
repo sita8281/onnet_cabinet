@@ -1,0 +1,49 @@
+.info-list {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.info-list-item {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 10px;
+    height: 35px;
+    line-height: 35px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    background-color: white;
+    -webkit-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    -moz-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+}
+
+.info-table {
+    border-spacing: 10px;
+}
+
+.info-table tr {
+    background-color: white;
+}
+
+.td-info {
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    width: 100%;
+    -webkit-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    -moz-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+}
+
+td.td-name {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    white-space: nowrap;
+    padding: 10px;
+    -webkit-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    -moz-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+}

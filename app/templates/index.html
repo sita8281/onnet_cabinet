@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/static/css/base.css?1">
     <link rel="stylesheet" href="/static/css/loader_anim.css?1">
     <link rel="stylesheet" href="/static/css/fonts.css">
+    <link rel="stylesheet" href="/static/css/info_view.css">
     <script src="https://widget.cloudpayments.ru/bundles/cloudpayments.js"></script>
 </head>
 <body>
@@ -25,7 +26,11 @@
     <!-- <h1>Login SUCCESS</h1>
     <a href="/logout">Выйти</a> -->
 
-    <div class="header"></div>
+    <div class="header">
+        <a href="/logout">Выйти
+            <img src="/static/images/exit.svg" alt="exit">
+        </a>
+    </div>
     <div class="header-pass"></div>
     <div class="main">
         <div class="content">
@@ -38,6 +43,15 @@
             </div>
             <div class="view-content">
                 <div class="label-content">Профиль абонента</div>
+                <table class="info-table">
+                    <thead></thead>
+                    <tbody class="tbody-list">
+                        <tr>
+                            <td class="td-name">Название:</td>
+                            <td class="td-info">Информация</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
