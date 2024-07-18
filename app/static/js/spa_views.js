@@ -96,5 +96,5 @@ function paymentView(data) {
     <div class="label-content">Пополнение баланса Банковской картой</div><div class="payment-container"></div>
     `
     $(containerViewsClass).html($(content))
-    $('<input type="checkbox">').appendTo('.payment-container');
+    $('<input type="checkbox"><label>Включить ежемесячные платежи</label>').appendTo('.payment-container');
 }
