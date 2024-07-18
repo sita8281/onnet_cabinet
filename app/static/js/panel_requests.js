@@ -72,7 +72,7 @@ function urlHandler(url) {
         case '/phone':
             ajaxRequest(url,
                 success_callback = (data) => {
-                    paymentView(data);
+                    phoneView(data);
                 },
                 error_callback = () => {
                     errorView('');
