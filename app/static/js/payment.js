@@ -1,9 +1,10 @@
 
-function openPaymentWindow (amount, accountId) {
+function openPaymentWindow (accountId) {
     var widget = new cp.CloudPayments();
 
     var data = {};
-    var auto = $('#recurrent-sample-3').is(':checked'); //проверка
+    var auto = $('#payment-sub').is(':checked'); //проверка
+    let amount = $('#payment-sum').val()
 
     if (auto) { //включаем подписку
 
@@ -19,7 +20,7 @@ function openPaymentWindow (amount, accountId) {
     widget.charge({ // options
         publicId: 'pk_524c2e6910d96abbecb08a0e7d7ae', //id из личного кабинета
         description: 'Пополнение счета. Договор № ' + accountId, //назначение
-        amount: amount, //сумма
+        amount: parseFloat(amount), //сумма
         currency: 'RUB', //валюта
 	    invoiceId: accountId,
         accountId: accountId, //идентификатор плательщика (обязательно для создания подписки)
@@ -28,8 +29,10 @@ function openPaymentWindow (amount, accountId) {
     },
     function (options) { // success
         //действие при успешной оплате
+        window.location.reload();
     },
     function (reason, options) { // fail
         //действие при неуспешной оплате
+        console.log('Не удалось пополнить баланс');
     });
 };

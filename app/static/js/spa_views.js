@@ -96,5 +96,7 @@ function paymentView(data) {
     <div class="label-content">Пополнение баланса Банковской картой</div><div class="payment-container"></div>
     `
     $(containerViewsClass).html($(content))
-    $('<input type="checkbox"><label>Включить ежемесячные платежи</label>').appendTo('.payment-container');
+    $('<label class="label-sub"><input id="payment-sub" type="checkbox">Включить ежемесячные платежи</label>').appendTo('.payment-container');
+    $(`<div class="payment-sum"><label>Сумма:</label><input id="payment-sum" type="text" autocomplete="off" value="${data.amount}"></div>`).appendTo('.payment-container');
+    $(`<a class="payment-button" href="javascript:openPaymentWindow('${data.account_id}')">Перейти к оплате</a>`).appendTo('.payment-container');
 }
