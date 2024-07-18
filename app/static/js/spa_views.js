@@ -96,12 +96,5 @@ function paymentView(data) {
     <div class="label-content">Пополнение баланса Банковской картой</div><div class="payment-container"></div>
     `
     $(containerViewsClass).html($(content))
-    $('#payment_button').click(function (e) { 
-        e.preventDefault();
-        openPaymentWindow(
-            parseFloat($('#payment_sum').val()),
-            data.account_id
-        )
-    });
-    
+    $('<input type="checkbox">').appendTo('.payment-container');
 }
