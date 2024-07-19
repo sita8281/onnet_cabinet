@@ -1,0 +1,54 @@
+.unit-ip {
+    margin-top: 20px;
+    max-width: 960px;
+    align-items: flex-start;
+    align-items: center;
+    min-height: 60px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    -webkit-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    -moz-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.unit-ip div {
+    margin-left: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.ip-connect {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin-right: 10px;
+    margin-left: auto;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    -webkit-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    -moz-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    transition: 0.3s;
+    text-decoration: none;
+    height: 40px;
+    width: 120px;
+    line-height: 40px;
+}
+
+.ip-state-off {
+    background-color: rgb(19, 121, 255);
+}
+
+.ip-state-off:hover {
+    background-color: rgb(14, 92, 194);
+    transition: 0.3s;
+}
+
+.ip-state-on {
+    background-color: rgb(119, 119, 119);
+    cursor: not-allowed;
+}

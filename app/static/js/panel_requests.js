@@ -43,6 +43,7 @@ function urlHandler(url) {
             ajaxRequest(url,
                 success_callback = (data) => {
                     userInfoView(data);
+                    dedicIpState = data.dedicaded_ip
                 },
                 error_callback = () => {
                     errorView('');
