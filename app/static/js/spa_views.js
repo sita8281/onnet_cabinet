@@ -76,7 +76,22 @@ function operationsView(data) {
 function tarifView(data) {
     // доступные тарифы
     const content = `<div class="label-content">Доступные тарифы</div><div class="tarif-list"></div>`
+    const notify = `
+    <div class="info-notify">
+        <div class="info-notify-header">
+            <img src="/static/images/info.svg">
+        </div>
+        <label class="info-notify-text">
+            Не найдено подходящих тарифов<br>
+            Для уточнения обратитесь в службу тех.поддержки
+        </label>
+    </div>
+    `
     $(containerViewsClass).html($('<div>', {class: 'tarif-list'}))
+    if (!data) {
+        $(notify).appendTo('.tarif-list');
+        return;
+    }
     $('.view-content').html(content);
     $(`<div class="current-tarif">Текущий тариф: ${data.current[0]}</div>`).appendTo('.tarif-list');
     $(`<div class="box-tarif"></div>`).appendTo('.tarif-list');

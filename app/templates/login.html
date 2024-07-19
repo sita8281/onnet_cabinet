@@ -1,34 +1,45 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/css/auth.css">
-  </head>
-  <body>
-    <div class="main">
-      <div class="auth">
-        <div class="header">
-          <label class="main-label">ONNET.RU</label>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="static/css/auth.css">
+        <link rel="stylesheet" href="/static/css/fonts.css">
+    </head>
+    <body>
+        <div class="main">
+            <form action="/login" method="post">
+                <div class="auth">
+                    <div class="header">
+                        <label class="main-label">ONNET.RU</label>
+                    </div>
+                    
+                    <div class="content">
+                        <label class="lk-label">Личный кабинет</label>
+                        <div class="lk-login">
+                            <img src="/static/images/user.svg">
+                            <input type="text" name="login" id="">
+                        </div>
+                        <div class="lk-passw">
+                            <img src="/static/images/lock.svg">
+                            <input type="password" name="passw" id="">
+                        </div>
+                    </div>
+
+                    {% if login_failed %}
+                    <label class="login-failed">Неверное имя пользователя или пароль</label>
+                    {% endif %}
+                    
+                    <div class="footer">
+                        <button class="button-login">Войти</button>
+                    </div>
+                    
+                </div>
+            </form>
         </div>
 
-        <div class="content">
-          <label class="lk-label">Личный кабинет</label>
-          <div class="lk-login">
-            <img src="">
-            <input type="text" name="" id="">
-          </div>
-          <div class="lk-passw">
-            <img src="">
-            <input type="text" name="" id="">
-          </div>
-        </div>
-        
-        <div class="footer">
-          <a href="">Войти</a>
-        </div>
-      </div>
-    </div>
-
-  </body>
+    </body>
 </html>
