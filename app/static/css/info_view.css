@@ -20,6 +20,7 @@
 
 .info-table {
     border-spacing: 10px;
+    max-width: 960px;
 }
 
 .info-table tr {

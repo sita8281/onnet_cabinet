@@ -102,7 +102,42 @@ function phoneView(data) {
     const content = `
     <div class="label-content">Настройка SMS уведомлений</div><div class="phone-container"></div>
     `
+    const notify = `
+    <div class="info-notify">
+        <div class="info-notify-header">
+            <img src="/static/images/info.svg">
+        </div>
+        <label class="info-notify-text">
+            Номер мобильного телефона без первой восьмерки, пробелов и скобок 10 цифр. <br>
+            Пример: 9034445566
+        </label>
+    </div>
+    `
     $(containerViewsClass).html($(content))
-    $(`<div class="phone-div"><label>Номер телефона:</label><input id="phone-number" type="text" autocomplete="off" value="${data}"></div>`).appendTo('.phone-container');
+    $(notify).appendTo('.phone-container');
+    $(`<div class="phone-div"><label>Номер телефона:</label><input maxlength="10" pattern="9[0-9]{9}" id="phone-number" type="text" autocomplete="off" value="${data}"></div>`).appendTo('.phone-container');
     $(`<a class="phone-button" href="">Сохранить</a>`).appendTo('.phone-container');
 }
+
+
+function controlView() {
+    // страница услуг (выделенный IP)
+    const content = `
+    <div class="label-content">Список доступных услуг</div><div class="control-container"></div>
+    `
+
+    const notify = `
+    <div class="info-notify">
+        <div class="info-notify-header">
+            <img src="/static/images/info.svg">
+        </div>
+        <label class="info-notify-text">
+            Для отключения услуги "Выделенный IP" обратитесь в тех.поддержку
+        </label>
+    </div>
+    `
+    $(containerViewsClass).html($(content));
+    $(notify).appendTo('.control-container');
+    
+}
+

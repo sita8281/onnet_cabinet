@@ -89,6 +89,10 @@ function urlHandler(url) {
                 }
             )
             break;
+        case '/control':
+            controlView();
+            requestRunning = false;
+            break;
 
     }
 }
@@ -99,7 +103,7 @@ function ajaxRequest(url, success_callback, error_callback) {
         method: 'get',
         timeout: 5000,
         type: "method",
-        url: 'http://127.0.0.1:8000/api' + url,
+        url: '/api' + url,
         data: "data",
         dataType: "json",
         success: function (response) {

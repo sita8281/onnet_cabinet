@@ -140,3 +140,35 @@ body, html {
     border-bottom: 1px solid silver;
     width: 100%;
 }
+
+
+.info-notify {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    max-width: 960px;
+    -webkit-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    -moz-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    border: 1px solid rgb(122, 179, 255);
+    overflow: hidden;
+    border-radius: 5px;
+
+}
+
+.info-notify-header  {
+    background-color: rgb(122, 179, 255);
+}
+
+.info-notify-header img {
+    width: 24px;
+    margin: 2px;
+}
+
+.info-notify label {
+    box-sizing: border-box;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+
+}

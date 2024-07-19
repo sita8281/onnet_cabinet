@@ -27,3 +27,31 @@
     background-color: rgb(14, 92, 194);
     transition: 0.3s;
 }
+
+.phone-div {
+    display: flex;
+    margin-top: 20px;
+    height: 40px;
+    align-items: center;
+}
+
+#phone-number {
+    margin-top: 0;
+    margin-left: 10px;
+    outline: none;
+    border-radius: 0;
+    border: 1px solid silver;
+    height: 30px;
+    
+}
+
+#phone-number:focus {
+    -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.6) inset;
+    -moz-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.6) inset;
+    box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.6) inset;
+    
+}
+
+.phone-div label {
+    font-family: 'Roboto', sans-serif;
+}
