@@ -2,7 +2,7 @@
 
 window.onload = () => {
     //routeRequest('/user', 'a-info')
-    paymentOk();
+    showModal('Информация', 'Услуга выделенный IP успешно подключена');
 }
 
 
