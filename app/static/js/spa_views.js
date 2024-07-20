@@ -163,3 +163,10 @@ function controlView() {
     
 }
 
+function paymentOk() {
+    const content = `
+    <div class="label-content">Оплата прошла успешно</div><div class="payment-ok-container"><img src="/static/images/check.svg"></div>
+    `
+    $(containerViewsClass).html($(content));
+}
+

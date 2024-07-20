@@ -29,7 +29,7 @@ function openPaymentWindow (accountId) {
     },
     function (options) { // success
         //действие при успешной оплате
-        window.location.reload();
+        paymentOk();
     },
     function (reason, options) { // fail
         //действие при неуспешной оплате

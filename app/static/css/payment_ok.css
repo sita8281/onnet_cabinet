@@ -1,0 +1,11 @@
+.payment-ok-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+}
+
+.payment-ok-container img {
+    width: 200px;
+}
