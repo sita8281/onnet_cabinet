@@ -56,4 +56,11 @@ async def change_tarif(request: Request, number: str, deil_account: dict = {}, )
     return await api.set_number_phone(phone=number)
 
 
+@api_router.get('/set_dedicaded_ip')
+@auth_protect
+async def set_dedic_ip(request: Request, deil_account: dict = {}, ):
+    api = BaseAPI(config=config, **deil_account)
+    return await api.set_dedicated_ip()
+
+
 

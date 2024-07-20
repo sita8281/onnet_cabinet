@@ -41,6 +41,7 @@ function changeTarif(tarif, buttonId) {
 }
 
 function changePhoneNumber() {
+    // смена номера телефона для SMS
     let number = $('#phone-number').val();
     let oldBtn = $('.phone-button').clone();
     if (number.length < 10 && number.length > 0) {
@@ -58,7 +59,7 @@ function changePhoneNumber() {
     $('.phone-button').removeAttr('href');
     $('.phone-button').css('cursor', 'pointer');
     $('.phone-button').html('Загрузка..')
-    
+
     $.ajax({
         timeout: 5000,
         type: "get",
@@ -86,6 +87,49 @@ function changePhoneNumber() {
             $('.phone-button').replaceWith(oldBtn);
         }
     });
+}
 
+function setDedicadedIp() {
+    let oldBtn = $('.ip-connect').clone();
+    $('.ip-connect').removeAttr('href');
+    $('.ip-connect').css('cursor', 'pointer');
+    $('.ip-connect').html('Подключение..')
 
+    $.ajax({
+        timeout: 5000,
+        type: "get",
+        url: "/api/set_dedicaded_ip",
+        dataType: "json",
+        success: function (response) {
+            $('.ip-connect').replaceWith(oldBtn);
+
+            if (!response.status) {
+                let txt = 'Услугу не удалось подключить';
+                if (response.error) {
+                    txt = response.error;
+                }
+                showModal(
+                    label='Ошибка',
+                    text=txt,
+                    state='error'
+                );
+                return;
+            }
+
+            showModal(
+                label='Информация',
+                text=response.info,
+                state='info'
+            );
+            
+        },
+        error: function () {
+            showModal(
+                label='Ошибка',
+                text='Сервер не ответил на запрос, услугу не удалось подключить',
+                state='error'
+            );
+            $('.ip-connect').replaceWith(oldBtn);
+        }
+    });
 }

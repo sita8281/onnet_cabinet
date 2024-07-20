@@ -165,7 +165,7 @@ function controlView() {
     if (dedicIpState) {
         $(`<div class="unit-ip"><div>Выделенный статический IP - стоимость подключения: 180.00 Руб/месяц</div><a class="ip-connect ip-state-on">Подключено</a></div>`).appendTo('.control-container');
     } else {
-        $(`<div class="unit-ip"><div>Выделенный статический IP - стоимость подключения: 180.00 Руб/месяц</div><a class="ip-connect ip-state-off" href="">Подключить</a></div>`).appendTo('.control-container');
+        $(`<div class="unit-ip"><div>Выделенный статический IP - стоимость подключения: 180.00 Руб/месяц</div><a class="ip-connect ip-state-off" href="javascript: setDedicadedIp()">Подключить</a></div>`).appendTo('.control-container');
     }
     
     
