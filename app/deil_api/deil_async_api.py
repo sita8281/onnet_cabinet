@@ -74,8 +74,10 @@ class BaseAPI:
         error = bs.find('div', {'class': 'ideco_error'})
         if error:
             return {'status': False, 'error': error.get_text().strip()}
-        if str(bs).find('alert'):
-            return {'status': True}
+        bs = str(bs)
+        if bs.find('alert') != -1:
+            alert = bs[bs.find('alert'):].split('(')[1].split(')')[0][1:-2]
+            return {'status': True, 'info': alert}
         return {'status': False}
 
     async def get_user_info(self) -> dict[Literal['info_list']: list, Literal['dedicaded_ip']: bool]:

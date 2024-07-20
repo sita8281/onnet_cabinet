@@ -94,10 +94,16 @@ function tarifView(data) {
     }
     $('.view-content').html(content);
     $(`<div class="current-tarif">Текущий тариф: ${data.current[0]}</div>`).appendTo('.tarif-list');
+    $(`<div class="change-tarif">Запрос на смену тарифа принят, операция будет выполнена в ближайшее время</div>`).appendTo('.tarif-list');
     $(`<div class="box-tarif"></div>`).appendTo('.tarif-list');
 
     $.each(data.tarifs, function (indexInArray, valueOfElement) { 
-         $(`<div class="unit-tarif"><div>${valueOfElement[0]}</div><a id="button-tarif-${indexInArray}" href="javascript:changeTarif('${valueOfElement[1]}', 'button-tarif-${indexInArray}')">Подключить</a></div>`).appendTo('.tarif-list');
+        if (valueOfElement[0].indexOf('--- ') == -1) {
+            $(`<div class="unit-tarif"><div>${valueOfElement[0]}</div><a id="button-tarif-${indexInArray}" href="javascript:changeTarif('${valueOfElement[1]}', 'button-tarif-${indexInArray}')">Подключить</a></div>`).appendTo('.tarif-list');
+        } else {
+            $('.change-tarif').css('display', 'block');
+        }
+        
     });
 }
 
@@ -125,13 +131,15 @@ function phoneView(data) {
         <label class="info-notify-text">
             Номер мобильного телефона без первой восьмерки, пробелов и скобок 10 цифр. <br>
             Пример: 9034445566
+            <br><br>
+            Чтобы отвязать номер, просто сохраните пустое поле номера телефона.
         </label>
     </div>
     `
     $(containerViewsClass).html($(content))
     $(notify).appendTo('.phone-container');
     $(`<div class="phone-div"><label>Номер телефона:</label><input maxlength="10" pattern="9[0-9]{9}" id="phone-number" type="text" autocomplete="off" value="${data}"></div>`).appendTo('.phone-container');
-    $(`<a class="phone-button" href="">Сохранить</a>`).appendTo('.phone-container');
+    $(`<a class="phone-button" href="javascript: changePhoneNumber()">Сохранить</a>`).appendTo('.phone-container');
 }
 
 

@@ -19,6 +19,27 @@
     box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
 }
 
+.change-tarif {
+    margin-top: 10px;
+    box-sizing: border-box;
+    display: none;
+    padding-left: 10px;
+    max-width: 960px;
+    height: 60px;
+    line-height: 60px;
+    border: 1px solid rgb(21, 182, 0);
+    border-left: 5px solid rgb(21, 182, 0);
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: transparent;
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+    -webkit-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    -moz-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+}
+
 
 .box-tarif {
     display: flex;

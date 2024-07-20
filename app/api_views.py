@@ -44,6 +44,16 @@ async def user_info(request: Request, deil_account: dict = {}):
 
 @api_router.get('/set_tarif')
 @auth_protect
-async def change_tarif(request: Request, tarif_plane: str, deil_accout: dict = {}, ):
-    api = BaseAPI(config=config, **deil_accout)
+async def change_tarif(request: Request, tarif_plane: str, deil_account: dict = {}, ):
+    api = BaseAPI(config=config, **deil_account)
     return await api.set_tarif(tarif=tarif_plane)
+
+
+@api_router.get('/set_phone')
+@auth_protect
+async def change_tarif(request: Request, number: str, deil_account: dict = {}, ):
+    api = BaseAPI(config=config, **deil_account)
+    return await api.set_number_phone(phone=number)
+
+
+
