@@ -2,7 +2,6 @@
 
 window.onload = () => {
     routeRequest('/user', 'a-info')
-    
 }
 
 

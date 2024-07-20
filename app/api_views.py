@@ -40,3 +40,10 @@ async def user_info(request: Request, deil_account: dict = {}):
 async def user_info(request: Request, deil_account: dict = {}):
     api = BaseAPI(config=config, **deil_account)
     return await api.get_sms_phone()
+
+
+@api_router.get('/set_tarif')
+@auth_protect
+async def change_tarif(request: Request, tarif_plane: str, deil_accout: dict = {}, ):
+    api = BaseAPI(config=config, **deil_accout)
+    return await api.set_tarif(tarif=tarif_plane)

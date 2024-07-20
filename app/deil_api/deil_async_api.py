@@ -147,6 +147,11 @@ class BaseAPI:
         bs = await self._post_bs('/cabinet/control', {'usluga_id': '12', 'submit_addon': 'addon'})
         return self._ideco_error_parser(bs)
 
+    async def set_tarif(self, tarif: str):
+        """Переключить тариф """
+        bs = await self._post_bs('/cabinet/tarif', {'change_tarif': 'trf', 'new_plan_id': tarif})
+        return self._ideco_error_parser(bs)
+
     async def promise_pay(self, tarif_sum: int) -> dict[Literal['status']: bool, Literal['error']: str] | \
                                                    dict[Literal['status']: bool]:
         """Выполнить обещанный платёж"""
