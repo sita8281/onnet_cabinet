@@ -8,3 +8,5 @@ window.onload = () => {
 // глобальная переменная, подключен выделенный IP или нет
 
 let dedicIpState = false;
+
+
