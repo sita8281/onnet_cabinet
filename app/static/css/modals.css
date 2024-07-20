@@ -1,3 +1,4 @@
+
 .background-modal {
     display: block;
     position: fixed;
@@ -7,5 +8,109 @@
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.397);
+    opacity: 0;
+    animation: ani1 1s forwards;
+}
 
+@keyframes ani1 {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+
+.modal-window {
+    border-radius: 5px;
+    border: 1px solid silver;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+    width: 300px;
+    transform: translateY(-150%);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    animation: ani2 1s forwards;
+}
+
+@keyframes ani2 {
+    0% {transform: translateY(-150%);}
+    100% {transform: translateY(0);}
+}
+
+.modal-close {
+    animation: ani3 1s forwards;
+}
+
+@keyframes ani3 {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(-150%);}
+}
+
+.window-icon {
+    width: 24px;
+}
+
+.window-top {
+    height: 40px;
+    border-bottom: 1px solid silver;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+.window-top label {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.window-middle {
+    height: 120px;
+    box-sizing: border-box;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+
+}
+
+.window-bottom {
+    height: 40px;
+    border-top: 1px solid silver;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.window-bottom {
+    display: flex;
+    align-items: center;
+
+}
+
+.window-bottom a{
+    text-decoration: none;
+    height: 30px;
+    width: 100px;
+    line-height: 30px;
+    background-color: rgb(19, 121, 255);
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    margin-right: 10px;
+    margin-left: auto;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    -webkit-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    -moz-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    transition: 0.3s;
+}
+
+.window-bottom a:hover {
+    background-color: rgb(14, 92, 194);
+    transition: 0.3s;
 }
