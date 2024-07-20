@@ -1,4 +1,4 @@
-function showModal(label, text, state) {
+function showModal(label, text, state, callback) {
     let stateClass = 'window-info';
     let imgHTML = '<img class="window-icon" src="/static/images/info-blue.svg">'
 
@@ -36,6 +36,8 @@ function closeModal() {
     setTimeout(() => {
         $('.background-modal').remove();
         $('.')
-        
+        if (callback) {
+            callback();
+        }
     }, 600);
 }

@@ -97,7 +97,7 @@ function tarifView(data) {
     $(`<div class="box-tarif"></div>`).appendTo('.tarif-list');
 
     $.each(data.tarifs, function (indexInArray, valueOfElement) { 
-         $(`<div class="unit-tarif"><div>${valueOfElement[0]}</div><a href="javascript:">Подключить</a></div>`).appendTo('.tarif-list');
+         $(`<div class="unit-tarif"><div>${valueOfElement[0]}</div><a id="button-tarif-${indexInArray}" href="javascript:changeTarif('${valueOfElement[1]}', 'button-tarif-${indexInArray}')">Подключить</a></div>`).appendTo('.tarif-list');
     });
 }
 
