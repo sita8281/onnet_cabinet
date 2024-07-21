@@ -15,7 +15,7 @@ body, html {
     -webkit-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
     -moz-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
     box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
-    z-index: 999;
+    z-index: 998;
 }
 
 .button__menu__box {
@@ -112,11 +112,35 @@ body, html {
     flex-direction: column;
     padding: 15px;
     box-sizing: border-box;
+    animation: panel-anim 1s forwards;
+    transform: translateX(-150%);
+}
+
+.control-panel-button {
+    display: none;
+}
+
+
+
+@keyframes panel-anim {
+    0% {transform: translateX(-150%);}
+    100% {transform: translateX(0);}
+}
+
+.hide-panel {
+    transform: translateX(0);
+    animation: panel-anim2 1s forwards;
+}
+
+@keyframes panel-anim2 {
+    0% {transform: translateX(0);}
+    100% {transform: translateX(-150%);}
 }
 
 .mobile-show-panel {
     display: flex;
 }
+
 
 .panel__a {
     display: flex;
@@ -238,10 +262,23 @@ body, html {
     }
     
     .content {
+        min-height: calc(100vh - 60px);
     }
     
     .panel {
+        z-index: 999;
+        position: fixed;
+        top: 60px;
+        left: 0;
         display: none;
+        min-height: calc(100vh - 60px);
+    }
+
+    .control-panel-button {
+        display: block;
+    }
+
+    .hide-panel {
     }
     .mobile-show-panel {
     
@@ -263,9 +300,13 @@ body, html {
     }
     
     .view-content {
+        padding: 10px;
     }
     
     .label-content {
+        line-height: 40px;
+        min-height: 40px;
+        font-size: 25px;
     }
     
     

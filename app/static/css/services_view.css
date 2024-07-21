@@ -17,6 +17,7 @@
 
 .unit-ip div {
     margin-left: 10px;
+    margin-right: 10px;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -52,4 +53,12 @@
 .ip-state-on {
     background-color: rgb(119, 119, 119);
     cursor: not-allowed;
+}
+
+
+@media (max-width: 768px) {
+    .unit-ip div {
+        
+        font-size: 14px;
+    }
 }

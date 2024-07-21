@@ -56,3 +56,18 @@ td.td-name {
 .on-ip {
     background-color: rgb(218, 255, 162)
 }
+
+@media (max-width: 576px) {
+    .td-info {
+        font-weight: 300;
+        font-size: 15px;
+        padding: 5px;
+    }
+    
+    td.td-name {
+        font-weight: 400;
+        font-size: 15px;
+        white-space: normal;
+        padding: 5px;
+    }
+}

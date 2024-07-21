@@ -16,7 +16,12 @@ function routeRequest(url, selectedId) {
     // убрать выделение со всех кнопок
     let buttonsList =  $('.panel').children();
     $.each(buttonsList, function (indexInArray, valueOfElement) { 
-        $('#' + valueOfElement.id).removeClass('selected__a');
+        try {
+            $('#' + valueOfElement.id).removeClass('selected__a');
+        } catch {
+            
+        }
+        
 
     });
 
@@ -37,6 +42,7 @@ function urlHandler(url) {
 
     requestRunning = true;
     loadingView();
+    $('.panel').removeAttr('style'); //скрыть бокобую панель
 
     switch (url) {
         case '/user':

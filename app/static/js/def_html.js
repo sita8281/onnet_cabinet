@@ -38,5 +38,7 @@ const animLoadingHTML = `
 
 // отображение ошибки
 const errorHTML = `
-<h1>Error</h1>
+<label style="font-family: 'Roboto', sans-serif; font-size: 128px; font-weight: 500;">:(</label>
+<br>
+<label style="font-family: 'Roboto', sans-serif; font-size: 25px; font-weight: 300;">Не удалось загрузить информацию, повторите попытку</label>
 `

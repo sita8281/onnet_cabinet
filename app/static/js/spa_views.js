@@ -14,6 +14,15 @@ function errorView(info) {
     $(containerViewsClass).html(errorHTML);
 }
 
+function paymentOk() {
+    // экран успешной загрузки
+    const content = `
+    <div class="label-content">Оплата прошла успешно</div><div class="payment-ok-container"><img src="/static/images/check.svg"></div>
+    `
+    $(containerViewsClass).html($(content));
+}
+
+
 function userInfoView(data) {
     // информация пользователя
     const content = `
@@ -171,10 +180,4 @@ function controlView() {
     
 }
 
-function paymentOk() {
-    const content = `
-    <div class="label-content">Оплата прошла успешно</div><div class="payment-ok-container"><img src="/static/images/check.svg"></div>
-    `
-    $(containerViewsClass).html($(content));
-}
 
