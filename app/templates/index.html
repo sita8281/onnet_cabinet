@@ -8,25 +8,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <script src="/static/js/payment.js"></script>
-    <script src="/static/js/jquery-3.7.1.min.js?1" defer></script>
-    <script src="/static/js/def_html.js?1" defer></script>
-    <script src="/static/js/spa_views.js?1" defer></script>
-    <script src="/static/js/panel_requests.js?1" defer></script>
-    <script src="/static/js/modals.js?1" defer></script>
-    <script src="/static/js/operations.js?1" defer></script>
-    <script src="/static/js/main.js?1" defer></script>
-    <link rel="stylesheet" href="/static/css/base.css?1">
-    <link rel="stylesheet" href="/static/css/loader_anim.css?1">
-    <link rel="stylesheet" href="/static/css/fonts.css">
-    <link rel="stylesheet" href="/static/css/info_view.css">
-    <link rel="stylesheet" href="/static/css/operations_view.css">
-    <link rel="stylesheet" href="/static/css/tarif_view.css">
-    <link rel="stylesheet" href="/static/css/payment_view.css">
-    <link rel="stylesheet" href="/static/css/phone_view.css">
-    <link rel="stylesheet" href="/static/css/services_view.css">
-    <link rel="stylesheet" href="/static/css/payment_ok.css">
-    <link rel="stylesheet" href="/static/css/modals.css">
+    <script src="/static/js/payment.js?ver={{ static_version }}"></script>
+    <script src="/static/js/jquery-3.7.1.min.js?ver={{ static_version }}" defer></script>
+    <script src="/static/js/def_html.js?ver={{ static_version }}" defer></script>
+    <script src="/static/js/spa_views.js?ver={{ static_version }}" defer></script>
+    <script src="/static/js/panel_requests.js?ver={{ static_version }}" defer></script>
+    <script src="/static/js/modals.js?ver={{ static_version }}" defer></script>
+    <script src="/static/js/operations.js?ver={{ static_version }}" defer></script>
+    <script src="/static/js/main.js?ver={{ static_version }}" defer></script>
+    <link rel="stylesheet" href="/static/css/base.css?ver={{ static_version }}">
+    <link rel="stylesheet" href="/static/css/loader_anim.css?ver={{ static_version }}">
+    <link rel="stylesheet" href="/static/css/fonts.css?ver={{ static_version }}">
+    <link rel="stylesheet" href="/static/css/info_view.css?ver={{ static_version }}">
+    <link rel="stylesheet" href="/static/css/operations_view.css?ver={{ static_version }}">
+    <link rel="stylesheet" href="/static/css/tarif_view.css?ver={{ static_version }}">
+    <link rel="stylesheet" href="/static/css/payment_view.css?ver={{ static_version }}">
+    <link rel="stylesheet" href="/static/css/phone_view.css?ver={{ static_version }}">
+    <link rel="stylesheet" href="/static/css/services_view.css?ver={{ static_version }}">
+    <link rel="stylesheet" href="/static/css/payment_ok.css?ver={{ static_version }}">
+    <link rel="stylesheet" href="/static/css/modals.css?ver={{ static_version }}">
     <script src="https://widget.cloudpayments.ru/bundles/cloudpayments.js"></script>
 </head>
 <body>
@@ -49,36 +49,36 @@
         <div class="content">
             <div class="panel">
                 <a class="panel__a" href="javascript: routeRequest('/user', 'a-info')" id="a-info">
-                    <img src="/static/images/info.svg">
+                    <img src="/static/images/info.svg?ver={{ static_version }}">
                     Информация
                 </a>
 
                 <a class="panel__a" href="javascript: routeRequest('/operations', 'a-operations')" id="a-operations">
-                    <img src="/static/images/history.svg">
+                    <img src="/static/images/history.svg?ver={{ static_version }}">
                     История операций
                 </a>
 
                 <a class="panel__a" href="javascript: routeRequest('/tarif', 'a-tarif')" id="a-tarif">
-                    <img src="/static/images/tarif.svg">
+                    <img src="/static/images/tarif.svg?ver={{ static_version }}">
                     Тарифы
                 </a>
 
                 <a class="panel__a" href="javascript: routeRequest('/payment', 'a-payment')" id="a-payment">
-                    <img src="/static/images/payment.svg">
+                    <img src="/static/images/payment.svg?ver={{ static_version }}">
                     Оплата
                 </a>
 
                 <a class="panel__a" href="javascript: routeRequest('/phone', 'a-sms')" id="a-sms">
-                    <img src="/static/images/sms.svg">
+                    <img src="/static/images/sms.svg?ver={{ static_version }}">
                     SMS-напоминания
                 </a>
 
                 <a class="panel__a" href="javascript: routeRequest('/control', 'a-control')" id="a-control">
-                    <img src="/static/images/services.svg">
+                    <img src="/static/images/services.svg?ver={{ static_version }}">
                     Услуги
                 </a>
                 <a class="control-panel-button" href="javascript: controlMenu()">
-                    <img src="/static/images/cross2.svg" style="width: 50px;">
+                    <img src="/static/images/cross2.svg?ver={{ static_version }}" style="width: 50px;">
                 </a>
             </div>
             <div class="view-content">

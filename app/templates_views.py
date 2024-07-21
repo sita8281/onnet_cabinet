@@ -1,5 +1,6 @@
 from .main import app, templates
 from fastapi import Request, Response, Form
+from app import config
 from fastapi.responses import RedirectResponse
 from .auth import auth_protect, auth_protect_redirect, auth_login, logout_response
 from typing import Dict, Annotated
@@ -16,7 +17,11 @@ async def main(request: Request, deil_account: dict = {}):
 @app.get('/login')
 @auth_login
 async def login(request: Request, login_failed: str = ''):
-    return templates.TemplateResponse(request=request, name='login.html', context={'login_failed': login_failed})
+    return templates.TemplateResponse(
+        request=request,
+        name='login.html',
+        context={'login_failed': login_failed, 'static_version': config['static_files_version']}
+    )
 
 
 @app.post('/login')

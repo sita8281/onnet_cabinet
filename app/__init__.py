@@ -1,5 +1,11 @@
-config = {
-    'host': '192.168.255.100',
-    'port': '80',
-    'secret_key': 'Q+-=193gjGhfgfXhdXX94+30.-483++3'
-}
+import json
+
+config = None
+try:
+    with open(file='../config.json') as f:
+        config = json.load(f)
+except OSError:
+    print('Не удалось найти конфигурационный файл')
+except json.JSONDecodeError:
+    print('Не удалось прочитать файл конфигурации, возможно он повреждён')
+
